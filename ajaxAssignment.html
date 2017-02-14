@@ -16,16 +16,14 @@
       <input type="button" id="get" value="GET" style="margin:80px;margin-top:10px;">
 
       <div class="container">
-        <img class="col-md-5" id="user-image" src="">
-        <h3>user-name</h3><p class="col-md-1" id="user-name"></p>
-        <h3>company</h3><p class="col-md-1" id="company"></p>
-        <h3>email</h3><p class="col-md-1" id="email"></p>
-        <h3>created at</h3><p class="col-md-1" id="created-on"></p>
-        <h3>location</h3><p class="col-md-1" id="location"></p>
-        <h3>URL</h3><p class="col-md-1" id="URL"></p>
+        <img class="col-xs-12" id="user-image" src="" style="height:200px;width:200px;">
+        <p class="col-xs-12" id="user-name"></p><br>
+        <p class="col-xs-12" id="company"></p><br>
+        <p class="col-xs-12" id="email"></p><br>
+        <p class="col-xs-12" id="created-on"></p><br>
+        <p class="col-xs-12" id="location"></p><br>
+        <p class="col-xs-12" id="URL"></p>
 
-
-    </div>
 
 
     <script>
@@ -39,12 +37,12 @@
           url:"https://api.github.com/users/"+user,
           success: function(data){
             $("#user-image").attr("src",data.avatar_url);
-            $("#user-name").html("User id is : "+data.name);
-            $("#company").html("User id is : "+data.company);
-            $("#email").html("User id is : "+data.email);
-            $("#created-on").html("User id is : "+data.created_at);
-            $("#location").html("User id is : "+data.location);
-            $("#URL").html("User id is : "+data.url);
+            $("#user-name").html(" User Name: "+data.name);
+            $("#company").html("company : "+data.company);
+            $("#email").html("Email : "+data.email);
+            $("#created-on").html("created-on : "+data.created_at);
+            $("#location").html("location : "+data.location);
+            $("#URL").html("URL:"+data.url);
 
           }
         });
