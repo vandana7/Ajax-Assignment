@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen" title="no title">
+  <script  src="https://code.jquery.com/jquery-3.1.1.min.js"  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="ajaxsheet.css">
+  <title>Get User Data</title>
+  </head>
+  <body background="bgimg1.png">
+
+    <div class="log">
+      <label for="username">username</label>
+      <input type="text" id="user" placeholder="username"><br><br>
+      <input type="button" id="get" value="GET" style="margin:80px;margin-top:10px;">
+
+      <div class="container">
+        <img class="col-md-5" id="user-image" src="">
+        <h3>user-name</h3><p class="col-md-1" id="user-name"></p>
+        <h3>company</h3><p class="col-md-1" id="company"></p>
+        <h3>email</h3><p class="col-md-1" id="email"></p>
+        <h3>created at</h3><p class="col-md-1" id="created-on"></p>
+        <h3>location</h3><p class="col-md-1" id="location"></p>
+        <h3>URL</h3><p class="col-md-1" id="URL"></p>
+
+
+    </div>
+
+
+    <script>
+    $("#get").click(function(){
+      if($("#user").val()==""){
+      alert("oops no input");}
+      else {
+        var user = $('#user').val();
+        $.ajax({
+
+          url:"https://api.github.com/users/"+user,
+          success: function(data){
+            $("#user-image").attr("src",data.avatar_url);
+            $("#user-name").html("User id is : "+data.name);
+            $("#company").html("User id is : "+data.company);
+            $("#email").html("User id is : "+data.email);
+            $("#created-on").html("User id is : "+data.created_at);
+            $("#location").html("User id is : "+data.location);
+            $("#URL").html("User id is : "+data.url);
+
+          }
+        });
+      }
+    });
+
+        </script>
+
+  </body>
+
+
+</html>
